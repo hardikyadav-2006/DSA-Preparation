@@ -9,7 +9,7 @@ public:
             if(i+1 == n){
                 res = nums[i];
             }
-            else if(nums[i]!=nums[i+1] || i+1 == n){
+            else if(nums[i]!=nums[i+1]){
                 res= nums[i];
                 break;
             }
