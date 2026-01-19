@@ -10,10 +10,11 @@ public:
             }else{
                 m[nums[i]] += 1;
             }
-            
+
             if(m[nums[i]] > n/2){
                     max= nums[i];
                     break;
+            }
         }
         return max;
         
