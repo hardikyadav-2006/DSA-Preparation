@@ -2,22 +2,21 @@ class Solution {
 public:
     int majorityElement(vector<int>& nums) {
         int n = nums.size();
-        unordered_map<int,int> m;
+        int count = 0;
+        int curr_el = nums[0];
         for(int i = 0; i<n; i++){
-            if(m.find(nums[i]) == m.end()){
-                m.emplace(nums[i], 1);
-            }else{
-                m[nums[i]] += 1;
+            if(nums[i] == curr_el){
+                count ++;
+            }else if(nums[i] != curr_el){
+                count --;
+            }
+
+            if(count <=0){
+                curr_el = nums[i];
             }
         }
-        int max = 0;
-        for(int i = 0; i<n; i++){
-            if(m[nums[i]] > n/2){
-                max= nums[i];
-                break;
-            }
-        }
-        return max;
+        return curr_el;
+        
         
     }
 };
