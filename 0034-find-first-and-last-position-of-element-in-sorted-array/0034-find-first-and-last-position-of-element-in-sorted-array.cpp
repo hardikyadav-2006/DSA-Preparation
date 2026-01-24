@@ -7,7 +7,7 @@ public:
         int mid = (st+end)/2;
         bool found = false;
         vector <int> res;
-        while(st<=end){
+        while(st<end){
             mid = (st+end)/2;
             if(nums[mid] == target){
                 found = true;
