@@ -9,16 +9,16 @@ public:
             mid = (st+end)/2;
             if(nums[mid] == target){
                 return mid;
-            }else if(nums[mid] >= nums[st]){
-                if(target < nums[mid] && target >= nums[st]){
+            }else if( nums[mid]>= nums[end]){
+                if(target >= nums[st] && target < nums[mid]){
                     end = mid-1;
                 }else{
-                    st=mid+1;
+                    st = mid +1;
                 }
-            }else if(nums[mid]<=nums[end]){
-
+            }else if(nums[mid] <= nums[end]){
                 if(target > nums[mid] && target <= nums[end]){
-                    st = mid+1;
+                    st = mid +1;
+                    
                 }else{
                     end = mid-1;
                 }
