@@ -8,13 +8,15 @@ public:
         while(st<=end){
             mid = (st+end)/2;
             if(st == end){
-                return nums[st];
+                
+                return nums[mid];
             }else if(nums[end] < nums[mid]){
-                st = mid + 1;
+                st = mid+1;
             }else{
                 end = mid;
             }
         }
-        return nums[st];   
+        return -1;
+        
     }
 };
