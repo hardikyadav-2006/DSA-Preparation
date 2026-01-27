@@ -4,33 +4,32 @@ public:
         int n = piles.size();
         int max_val = INT_MIN;
         for(int i = 0; i<n; i++){
-            max_val = max(piles[i], max_val);
+            max_val = max(max_val, piles[i]); 
         }
-        
+
         int st = 1;
         int end = max_val;
         int mid = (st+end)/2;
-        long long int tot = 0;
-        int ans= 0;
+        int tot = 0;
+        int ans;
         while(st<=end){
-            mid = (st+end)/2;
             tot = 0;
-            for(int j = 0; j<n; j++){
-                if(piles[j]%mid == 0){
-                    tot += piles[j]/mid;
+            mid = (st+end)/2;
+            for(int i = 0; i<n ;i++){
+                if(piles[i]%mid == 0){
+                    tot += piles[i]/mid;
                 }else{
-                    tot += (piles[j]/mid)+1;
+                    tot += (piles[i]/mid) +1;
                 }
             }
-
             if(tot > h){
                 st = mid+1;
-            }
-            else {
+            }else{
                 ans = mid;
                 end = mid-1;
             }
         }
         return ans;
+        
     }
 };
