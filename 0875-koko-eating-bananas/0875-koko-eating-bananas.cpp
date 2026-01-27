@@ -10,7 +10,7 @@ public:
         int st = 1;
         int end = max_val;
         int mid = (st+end)/2;
-        int tot = 0;
+        long long int tot = 0;
         int ans;
         while(st<=end){
             tot = 0;
