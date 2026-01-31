@@ -13,11 +13,9 @@ public:
             }else{
                 m.emplace(s[i], 1);
             }
-        }
 
-        for(int i = 0; i<n; i++){
             if(m.find(t[i]) == m.end()){
-                return false;
+                m.emplace(t[i], -1);
             }else{
                 m[t[i]] -= 1;
             }
