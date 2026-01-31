@@ -5,23 +5,10 @@ public:
         int n2 = goal.size();
 
         if(n1 != n2) return false;
-        for(int i = 0; i<n1; i++){
-            bool match = false;
-            for(int j = 0; j<n1; j++){
-                if(s[j] == goal[(j+i)%n1]){
-                    match = true;
-                }else{
-                    match = false;
-                    break;
-                }
-            }
-            if(match){
-                return true;
-            }
-        }
-        return false;
 
+        string double_s = s+s;
 
-        
+        if(double_s.find(goal) != -1) return true;
+        return false; 
     }
 };
