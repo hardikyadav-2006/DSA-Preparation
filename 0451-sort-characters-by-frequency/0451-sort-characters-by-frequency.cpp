@@ -3,7 +3,6 @@ public:
     string frequencySort(string s) {
         int n = s.size();
         unordered_map<char, int> m;
-        vector<pair<int, int>> med;
         for(int i = 0; i<n; i++){
             m[s[i]]++;
         }
