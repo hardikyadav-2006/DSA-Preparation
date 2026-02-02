@@ -7,18 +7,22 @@ public:
         for(int i = 0; i<n; i++){
             m[s[i]]++;
         }
-
+        vector<string> bucket(n+1, "");
         for(auto p : m){
-            med.push_back({p.second, p.first});
+            bucket[p.second] += p.first;
         }
         string res = "";
-        sort(med.rbegin(), med.rend());
-        for(auto p: med){
-            int count = p.first;
-            while(count>0){
-                res += p.second;
-                count--;
+        int n1 = bucket.size();
+        for(int i = n1-1; i>=0; i--){
+            int count = i;
+            if(bucket[i].size() >0){
+                for(char ch: bucket[i]){
+                    res.append(i, ch);
+
+                }
+                
             }
+            
         }
         return res;
     }
