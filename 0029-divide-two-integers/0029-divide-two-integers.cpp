@@ -17,7 +17,7 @@ public:
             }
             
             res += (1LL<<count);
-            divd = divd - (div*(1<<count));
+            divd = divd - (div*(1LL<<count));
             
         }
         if(res > INT_MAX && sign == true) return INT_MAX;
