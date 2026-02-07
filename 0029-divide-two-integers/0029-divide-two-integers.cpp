@@ -8,16 +8,16 @@ public:
         if (dividend == INT_MIN && divisor == -1) return INT_MAX;
         int count = 0;
         long long int res = 0;
-        long div = labs((long)divisor);
-        long divd = labs((long)dividend);
+        long int div = labs((long)divisor);
+        long int divd = labs((long)dividend);
         while(divd >= div){
             int count = 0;
             while(divd >= div<<(count+1)){
                 count ++;
             }
             
-            res += (1LL<<count);
-            divd = divd - (div*(1LL<<count));
+            res += (1<<count);
+            divd = divd - (div<<count);
             
         }
         if(res > INT_MAX && sign == true) return INT_MAX;
