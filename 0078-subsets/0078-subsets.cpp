@@ -1,15 +1,16 @@
 class Solution {
 public:
-    void helper(vector<int>& nums, int i, vector<vector<int>>& res,vector<int> tmp){
+    void helper(vector<int>& nums, int i, vector<vector<int>>& res,vector<int> ans){
         
         int n = nums.size();
         if(i  == n){
-            res.push_back(tmp);
+            res.push_back(ans);
             return;
         }
-        helper(nums, i+1,res,tmp);
-        tmp.push_back(nums[i]);
-        helper(nums, i+1,res,tmp);
+        ans.push_back(nums[i]);
+        helper(nums, i+1,res,ans);
+        ans.pop_back();
+        helper(nums, i+1,res,ans);
 
     }
 
