@@ -1,24 +1,22 @@
 class Solution {
 public:
-
-    void getPerm(vector<int> &nums, int idx, vector<vector<int>> &res){
-        if(idx == nums.size()){
+    void helper(vector<int>& nums, vector<vector<int>>& res, int i){
+        int sz = nums.size();
+        if(i == sz-1){
             res.push_back(nums);
-            return;
         }
+        for(int j = i; j<sz; j++ ){
+            swap(nums[i], nums[j]);
+            helper(nums, res, i+1);
+            swap(nums[i], nums[j]);
 
-        for(int i = idx; i<nums.size(); i++){
-            swap(nums[idx], nums[i]);
-            getPerm(nums, idx+1, res);
-            swap(nums[idx], nums[i]);
         }
+        
+
     }
     vector<vector<int>> permute(vector<int>& nums) {
         vector<vector<int>> res;
-        int idx = 0;
-
-        getPerm(nums, idx, res);   
+        helper(nums, res, 0);
         return res;
     }
-    
 };
