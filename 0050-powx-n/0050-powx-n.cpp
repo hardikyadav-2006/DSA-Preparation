@@ -1,38 +1,30 @@
 class Solution {
 public:
-    double myPow(double x, long long int n) {
-        if (n==0) return 1;
-        double res=1;
-        if(n>0){
-            while (n>1){
-                if(n%2 == 0){
-                    x=x*x;
-                    n=n/2;
-                }else{
-                    res = res*x;
-                    x=x*x;
-                    n=n/2;
-                }
-            }
-        res = res*x;
-        }else {
-            n = -n;
-            x=1/x;
-            while (n>1){
-                if(n%2 == 0){
-                    x=x*x;
-                    n=n/2;
-                }else{
-                    res = res*x;
-                    x=x*x;
-                    n=n/2;
-                }
-            }
-        res = res*x;
-
-        }
+    void helper(double x, long long int n, double &res){
         
+        if(n == 1){
+            res = res*x;
+            return;
+
+        } 
+        if(n%2 == 0){
+            helper(x*x, n/2, res);
+        }else{
+            res = res*x;
+            helper(x*x, n/2, res);
+        }
+    }
+    double myPow(double x, long long int n) {
+        if(n== 0 ) return 1;
+        double res = 1;
+        if(n<0){
+            n=-n;
+            x=1/x;
+        }
+        helper(x, n, res);
         return res;
+
+
         
     }
 };
