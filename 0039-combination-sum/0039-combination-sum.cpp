@@ -1,26 +1,37 @@
 class Solution {
 public:
 
-    void helper(vector<int>& candidates, int target, vector<vector<int>>& res, vector<int>& tmp, int i , int sum){
-        int n = candidates.size();
-        if(i==n){
-            if(sum == target) res.push_back(tmp);
+    set<vector<int>> s;
+
+    void getComb(vector<int>& arr, int idx, int tar, vector<int> &comb, vector<vector<int>> &ans){
+        
+        // Base Case 1
+        if(idx == arr.size() || tar < 0){
             return;
         }
-        tmp.push_back(candidates[i]);
-        sum+= candidates[i];
-        helper(candidates, target, res, tmp, i+1, sum);
-        tmp.pop_back();
-        sum = sum-candidates[i];
-        helper(candidates, target, res, tmp, i+1,sum );
+
+        if(tar == 0){
+            if(s.find(comb) == s.end()){
+                ans.push_back(comb);
+                s.insert(comb);
+            }
+            return;
+        }
+
+        comb.push_back(arr[idx]);
+        getComb(arr, idx+1, tar-arr[idx], comb, ans); // single inclusion
+        getComb(arr, idx, tar-arr[idx], comb, ans); // multiple inclusion
+        comb.pop_back();
+        getComb(arr, idx+1, tar, comb, ans); // exclusion
 
     }
-    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
-        vector<vector<int>> res;
-        vector<int> tmp;
-        int i =0;
-        int sum = 0;
-        helper(candidates, target, res, tmp, sum , i);
-        return res;
+
+    vector<vector<int>> combinationSum(vector<int>& arr, int tar) {
+        vector<int> comb;
+        vector<vector<int>> ans;
+        int idx = 0;
+
+        getComb(arr, idx, tar, comb, ans);
+        return ans;
     }
 };
