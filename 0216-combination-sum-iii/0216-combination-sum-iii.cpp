@@ -5,7 +5,7 @@ public:
             res.push_back(tmp);
             return;
         }
-        if(n<0 || k<=0 || i>9){
+        if(n<0 || k<0 || i>9){
             return;
         }
         tmp.push_back(i);
@@ -19,6 +19,5 @@ public:
         int i = 1;
         helper(k, n, res, tmp, i);
         return res;
-        
     }
 };
