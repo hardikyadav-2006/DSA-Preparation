@@ -12,6 +12,7 @@ public:
         ListNode* fwd = node->next;
         node->val = fwd->val;
         node->next = fwd->next;
+        delete fwd;
         
     }
 };
