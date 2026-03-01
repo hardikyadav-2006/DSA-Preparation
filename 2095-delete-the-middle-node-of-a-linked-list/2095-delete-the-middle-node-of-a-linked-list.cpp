@@ -25,13 +25,8 @@ public:
             tmp->next = NULL;
             delete tmp;
         }else{
-            ListNode* prev = head;
-            while(prev->next!=tmp1){
-                prev=prev->next;
-            }
-            prev->next = tmp1->next;
-            tmp1->next = NULL;
-            delete tmp1;
+            tmp1->val = tmp1->next->val;
+            tmp1->next = tmp1->next->next;
         }
         return head;
 
