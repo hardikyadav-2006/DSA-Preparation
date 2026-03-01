@@ -1,30 +1,31 @@
 class Solution {
 public:
     bool isPal(string s){
-        string temp = s;
-        reverse(s.begin(),s.end());
-        return temp == s;
+        string tmp = s
+        reverse(tmp.begin(), tmp.end());
+        return tmp == s;
     }
-    void getAllParts(string s, vector<vector<string>> &ans, vector<string> &partition ){
+
+    void helper(string s, vector<vector<string>>& res, vector<string>&tmp){
+        int n = s.size();
         if(s.empty()){
-            ans.push_back(partition);
+            res.push_back(tmp);
             return;
         }
-
-        for(int i = 0; i<s.size(); i++){
+        for(int i=0; i<n;i++){
             if(isPal(s.substr(0,i+1))){
-                partition.push_back(s.substr(0,i+1));
-                getAllParts(s.substr(i+1), ans, partition);
-                partition.pop_back();
+                tmp.push_back(s.substr(0,i+1));
+                helper(s.substr(i+1), res, tmp);
+                tmp.pop_back();
             }
+           
+
         }
     }
-
     vector<vector<string>> partition(string s) {
-        vector<vector<string>> ans;
-        vector<string> partition;
-    
-        getAllParts(s, ans, partition);
-        return ans;
+        vector<vector<string>> res;
+        vector<string> tmp;
+        helper(s, res, tmp);
+        return res; 
     }
 };
