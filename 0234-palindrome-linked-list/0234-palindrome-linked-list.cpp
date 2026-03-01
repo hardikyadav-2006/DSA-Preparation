@@ -13,41 +13,21 @@ public:
     bool isPalindrome(ListNode* head) {
         bool pal = true;
         stack<int> s;
-        int count = 0;
-        ListNode* tmp = head;
-        while(tmp!= NULL){
-            tmp=tmp->next;
-            count++;
+        ListNode* slow = head;
+        ListNode* fast = head;
+        s.push(slow->val);
+        while(fast->next!=NULL && fast->next->next!=NULL){\
+            slow=slow->next;
+            fast=fast->next->next;
+            s.push(slow->val);
         }
-        tmp = head;
-        if(count%2 == 0){
-            for(int i = 0; i<count/2; i++){
-                s.push(tmp->val);
-                tmp = tmp->next;
-            }
-            for(int i = 0; i<count/2; i++){
-                if(s.top()!=tmp->val) return false;
-                s.pop();
-                tmp = tmp->next;
-            }
-            pal = true;
+        if(!(fast->next!=NULL)) s.pop();
+        while(slow->next!=NULL){
+            slow=slow->next;
+            if(slow->val!=s.top()) return false;
+            s.pop();
         }
-        if(count%2 != 0){
-            for(int i = 0; i<count/2; i++){
-                s.push(tmp->val);
-                tmp = tmp->next;
-            }
-            tmp=tmp->next;
-            for(int i = 0; i<count/2; i++){
-                if(s.top()!=tmp->val) return false;
-                s.pop();
-                tmp = tmp->next;
-            }
-            pal = true;
+        return true;
 
-        }
-        if(pal) return true;
-        return false;
-        
     }
 };
