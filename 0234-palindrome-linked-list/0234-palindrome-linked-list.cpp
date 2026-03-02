@@ -15,7 +15,7 @@ public:
         stack<int> s;
         ListNode* slow = head;
         ListNode* fast = head;
-        while(fast->next->next!=NULL && fast->next!=NULL){
+        while(fast->next!=NULL && fast->next->next!=NULL){
             s.push(slow->val);
             slow = slow->next;
             fast = fast->next->next;
