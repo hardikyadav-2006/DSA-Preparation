@@ -14,10 +14,10 @@ public:
         ListNode* tmp2 = headB;
         while(tmp1 != tmp2){
             if(tmp1==NULL) tmp1 = headB;
+            else tmp1 = tmp1->next;
+
             if(tmp2==NULL) tmp2 = headA;
-            if(tmp1 == tmp2) return tmp1;
-            tmp1 = tmp1->next;
-            tmp2 = tmp2->next;
+            else tmp2 = tmp2->next;
         }
         return tmp1;
         
