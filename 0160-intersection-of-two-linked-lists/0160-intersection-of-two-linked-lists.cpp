@@ -12,38 +12,16 @@ public:
         if(headA == NULL || headB == NULL) return NULL;
         ListNode* tmp1 = headA;
         ListNode* tmp2 = headB;
-        int countA = 0;
-        int countB = 0;
-        while(tmp1 != NULL || tmp2!= NULL){
-            if(tmp1!=NULL){
-                tmp1 = tmp1->next;
-                countA++;
-            }
-            
-            if(tmp2!=NULL){
-                tmp2 = tmp2->next;
-                countB++;
-            }  
-        }
-        tmp1 = headA;
-        tmp2 = headB;
-        int diff = countB-countA;
-        bool A = false;
-        if(diff<0) {
-            A = true;
-            diff = -diff;
-        }
-        while(diff>0){
-            if(A) tmp1 = tmp1->next;
-            else tmp2=tmp2->next;
-            diff--;
-        }
-        while(tmp1!=NULL){
-            if((tmp1) == (tmp2)) return tmp1;
+        while(tmp1 != tmp2){
+            if(tmp1==NULL) tmp1 = headB;
+            if(tmp2==NULL) tmp2 = headA;
+            if(tmp1 == tmp2) return tmp1;
             tmp1 = tmp1->next;
             tmp2 = tmp2->next;
         }
-        return NULL;
+        return tmp1;
+        
+        
 
         
     }
