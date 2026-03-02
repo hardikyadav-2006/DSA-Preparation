@@ -9,10 +9,11 @@
 class Solution {
 public:
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+        if(headA == NULL || headB == NULL) return NULL;
         ListNode* tmp1 = headA;
         ListNode* tmp2 = headB;
-        int countA = 1;
-        int countB = 1;
+        int countA = 0;
+        int countB = 0;
         while(tmp1 != NULL || tmp2!= NULL){
             if(tmp1!=NULL){
                 tmp1 = tmp1->next;
@@ -37,7 +38,6 @@ public:
             else tmp2=tmp2->next;
             diff--;
         }
-        
         while(tmp1!=NULL){
             if((tmp1) == (tmp2)) return tmp1;
             tmp1 = tmp1->next;
