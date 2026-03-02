@@ -27,17 +27,17 @@ public:
         tmp1 = headA;
         tmp2 = headB;
         int diff = countB-countA;
-        if(diff>=0){
-            while(diff>0){
-                tmp2=tmp2->next;
-                diff--;
-            }
-        }else{
-            while(diff<0){
-                tmp1 = tmp1->next;
-                diff++;
-            }
+        bool A = false;
+        if(diff<0) {
+            A = true;
+            diff = -diff;
         }
+        while(diff>0){
+            if(A) tmp1 = tmp1->next;
+            else tmp2=tmp2->next;
+            diff--;
+        }
+        
         while(tmp1!=NULL){
             if((tmp1) == (tmp2)) return tmp1;
             tmp1 = tmp1->next;
