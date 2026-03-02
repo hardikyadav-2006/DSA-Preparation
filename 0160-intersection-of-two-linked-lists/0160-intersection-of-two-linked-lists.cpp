@@ -13,13 +13,16 @@ public:
         ListNode* tmp2 = headB;
         int countA = 1;
         int countB = 1;
-        while(tmp1 != NULL){
-            tmp1 = tmp1->next;
-            countA++;
-        }
-        while(tmp2 != NULL){
-            tmp2 = tmp2->next;
-            countB++;
+        while(tmp1 != NULL || tmp2!= NULL){
+            if(tmp1!=NULL){
+                tmp1 = tmp1->next;
+                countA++;
+            }
+            
+            if(tmp2!=NULL){
+                tmp2 = tmp2->next;
+                countB++;
+            }  
         }
         tmp1 = headA;
         tmp2 = headB;
