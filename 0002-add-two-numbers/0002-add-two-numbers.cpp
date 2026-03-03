@@ -15,7 +15,7 @@ public:
         ListNode* tail = NULL;
         int carry = 0;
         
-        while(l1!=NULL || l2!=NULL){
+        while(l1!=NULL || l2!=NULL || carry!=0){
             int val1 =(l1==NULL)? 0:l1->val;
             int val2 =(l2==NULL)? 0:l2->val;
             
