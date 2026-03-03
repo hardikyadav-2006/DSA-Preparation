@@ -16,9 +16,10 @@ public:
         int carry = 0;
         
         while(l1!=NULL || l2!=NULL){
-            if(l1==NULL) l1->val = 0;
-            if(l2 == NULL) l2->val = 0;
-            int sum = l1->val + l2->val + carry;
+            int val1 =(l1==NULL)? 0:l1->val;
+            int val2 =(l2==NULL)? 0:l2->val;
+            
+            int sum = val1 + val2 + carry;
             carry = sum/10;
             ListNode* newNode= new ListNode(sum%10);
             if(l1!=NULL)l1=l1->next;
