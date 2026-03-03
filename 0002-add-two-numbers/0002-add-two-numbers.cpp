@@ -31,12 +31,7 @@ public:
                 tail=newNode;
             }
         }
-        if(carry == 1){
-            ListNode* newNode= new ListNode(1);
-            tail->next = newNode;
-
-
-        }
+        
         return head;
         
     }
