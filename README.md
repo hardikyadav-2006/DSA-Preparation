@@ -15,4 +15,16 @@
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0131-palindrome-partitioning](https://github.com/hardikyadav-2006/DSA-Preparation/tree/main/0131-palindrome-partitioning/) | Medium |
+## Hash Table
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0160-intersection-of-two-linked-lists](https://github.com/hardikyadav-2006/DSA-Preparation/tree/main/0160-intersection-of-two-linked-lists/) | Easy |
+## Linked List
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0160-intersection-of-two-linked-lists](https://github.com/hardikyadav-2006/DSA-Preparation/tree/main/0160-intersection-of-two-linked-lists/) | Easy |
+## Two Pointers
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0160-intersection-of-two-linked-lists](https://github.com/hardikyadav-2006/DSA-Preparation/tree/main/0160-intersection-of-two-linked-lists/) | Easy |
 <!---LeetCode Topics End-->
