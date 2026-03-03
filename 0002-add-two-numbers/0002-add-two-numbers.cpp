@@ -14,14 +14,13 @@ public:
         ListNode* head = NULL;
         ListNode* tail = NULL;
         int carry = 0;
-        int sum = 0;
+        
         while(l1!=NULL || l2!=NULL){
-            if(l1==NULL) sum = l2->val + carry;
-            if(l2 == NULL) sum=  l1->val + carry;
-            if(l1!=NULL && l2!=NULL)sum = l1->val + l2->val + carry;
-            ListNode* newNode= new ListNode(sum%10);
-            
+            if(l1==NULL) l1->val = 0;
+            if(l2 == NULL) l2->val = 0;
+            int sum = l1->val + l2->val + carry;
             carry = sum/10;
+            ListNode* newNode= new ListNode(sum%10);
             if(l1!=NULL)l1=l1->next;
             if(l2!=NULL)l2=l2->next;
 
