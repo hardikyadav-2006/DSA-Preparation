@@ -23,12 +23,14 @@
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0002-add-two-numbers](https://github.com/hardikyadav-2006/DSA-Preparation/tree/main/0002-add-two-numbers/) | Medium |
+| [0061-rotate-list](https://github.com/hardikyadav-2006/DSA-Preparation/tree/main/0061-rotate-list/) | Medium |
 | [0148-sort-list](https://github.com/hardikyadav-2006/DSA-Preparation/tree/main/0148-sort-list/) | Medium |
 | [0160-intersection-of-two-linked-lists](https://github.com/hardikyadav-2006/DSA-Preparation/tree/main/0160-intersection-of-two-linked-lists/) | Easy |
 | [0328-odd-even-linked-list](https://github.com/hardikyadav-2006/DSA-Preparation/tree/main/0328-odd-even-linked-list/) | Medium |
 ## Two Pointers
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0061-rotate-list](https://github.com/hardikyadav-2006/DSA-Preparation/tree/main/0061-rotate-list/) | Medium |
 | [0148-sort-list](https://github.com/hardikyadav-2006/DSA-Preparation/tree/main/0148-sort-list/) | Medium |
 | [0160-intersection-of-two-linked-lists](https://github.com/hardikyadav-2006/DSA-Preparation/tree/main/0160-intersection-of-two-linked-lists/) | Easy |
 ## Math
