@@ -10,54 +10,49 @@
  */
 class Solution {
 public:
-    ListNode* sortList(ListNode *head){
-        if(head == NULL || head->next == NULL){
-            return head;
-        }
-        ListNode* mid = getMid(head);
+    ListNode* sortList(ListNode* head) {
+        if(head == NULL|| head->next == NULL) return head;
+
+        ListNode* mid = findMid(head);
         ListNode* left = head;
         ListNode* right = mid->next;
         mid->next = NULL;
 
-        left = sortList(head);
+        left = sortList(left);
         right = sortList(right);
-        return merge(left, right);
 
+        return merge(left, right);
+        
     }
 
-    ListNode* getMid(ListNode* head){
+    ListNode* findMid(ListNode* head){
         ListNode* slow = head;
         ListNode* fast = head->next;
         while(fast!=NULL && fast->next!=NULL){
-            fast = fast->next->next;
             slow = slow->next;
+            fast=fast->next->next;
         }
         return slow;
     }
-    ListNode* merge(ListNode* left, ListNode* right) {
-        ListNode * dummynode = new ListNode(-1);
+
+    ListNode* merge(ListNode* l1, ListNode* r1){
+        ListNode* dummynode = new ListNode(0);
         ListNode* tmp = dummynode;
 
-        while(left!=NULL && right!=NULL){
-
-
-            if(left->val < right->val){
-                tmp ->next = left;
-                tmp = left;
-                left = left->next;
+        while(l1!=NULL && r1!=NULL){
+            if(l1->val < r1->val){
+                tmp->next = l1;
+                l1= l1->next;
             }else{
-                tmp->next = right;
-                tmp = right;
-                right = right->next;
-
+                tmp->next = r1;
+                r1=r1->next;
             }
-            
-
+            tmp = tmp->next;
         }
-        if(left!=NULL) tmp->next = left;
-        else tmp->next = right;
+        if(l1 ==NULL) tmp->next = r1;
+        if(r1 ==NULL) tmp->next = l1;
 
         return dummynode->next;
-        
+
     }
 };
