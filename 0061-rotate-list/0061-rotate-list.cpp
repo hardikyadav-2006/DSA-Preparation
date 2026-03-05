@@ -20,8 +20,7 @@ public:
         } 
         tail->next = head;
 
-        int idx = count-k-1;
-        while(idx<0) idx+= count;
+        int idx = count-(k%count)-1;
         while(idx>0){
             head = head->next;
             idx--;
