@@ -17,7 +17,6 @@ public:
         
 
         for(int i = 0; i<n1;i++){
-            
             res.push_back(m[nums1[i]]);
         }
         return res;
