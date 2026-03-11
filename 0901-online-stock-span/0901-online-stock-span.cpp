@@ -14,7 +14,7 @@ public:
 
         }
         s.push({price, span});
-        return s.top().second;
+        return span;
         
     }
 };
