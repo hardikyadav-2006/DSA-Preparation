@@ -8,7 +8,7 @@ public:
     void push(int val) {
         if(s.empty()) s.push({val, val});
         else {
-            long long int min_val = min(s.top().second, val);
+            int min_val = min(s.top().second, val);
             s.push({val, min_val});
         }
 
